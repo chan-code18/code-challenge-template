@@ -1,4 +1,4 @@
-CREATE DATABASE challenge;  
+CREATE DATABASE weather_challenge;  
 USE weather_challenge;
 CREATE TABLE weather_station (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
