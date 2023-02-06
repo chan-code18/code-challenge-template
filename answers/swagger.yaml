@@ -20,7 +20,7 @@ paths:
           schema:
             type: string
             format: date
-          description: Date of the weather data to retrieve (YYYY-MM-DD)
+          description: Date of the weather data to retrieve (YYYYMMDD)
         - in: query
           name: station_id
           schema:
@@ -74,12 +74,6 @@ paths:
       summary: Retrieve weather statistics
       description: Returns weather statistics filtered by date and station ID
       parameters:
-        - in: query
-          name: date
-          schema:
-            type: string
-            format: date
-          description: Date of the weather data to retrieve (YYYY-MM-DD)
         - in: query
           name: station_id
           schema:
