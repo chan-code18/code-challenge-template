@@ -1,0 +1,21 @@
+To deploy the API, database and the scheduled version of the data ingestion code in the cloud using AWS, the following steps and services can be used:
+
+AWS Elastic Beanstalk: The Flask API can be deployed to AWS Elastic Beanstalk which is a fully managed service that makes it easy to deploy, run and scale web applications. This service provides automatic management of the underlying resources and infrastructure, automatic load balancing and health monitoring, as well as easy scaling.
+
+AWS RDS: The database can be hosted on AWS RDS (Relational Database Service), which is a managed service that makes it easy to set up, operate, and scale relational databases in the cloud.
+
+AWS EC2: To run the scheduled version of the data ingestion code, an EC2 (Elastic Compute Cloud) instance can be used. This service provides scalable computing capacity in the AWS Cloud and can be used to run applications and services.
+
+AWS CloudWatch: AWS CloudWatch can be used to schedule the data ingestion code. This service provides monitoring for AWS resources and the applications you run on the Amazon Web Services.
+
+AWS S3: The weather data files can be stored in an S3 (Simple Storage Service) bucket. This service is an object storage service that offers industry-leading scalability, data availability, security, and performance.
+
+Swagger/OpenAPI: The Swagger/OpenAPI endpoint can be used to provide automatic documentation of the API.
+
+The deployment architecture can look like:
+
+The Flask API will be deployed to AWS Elastic Beanstalk
+The database will be hosted on AWS RDS
+The weather data files will be stored in an S3 bucket
+The data ingestion code will be scheduled to run on an EC2 instance using AWS CloudWatch
+This approach provides a scalable, secure and easily manageable infrastructure for the API, database, and data ingestion code.
