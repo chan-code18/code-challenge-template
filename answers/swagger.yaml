@@ -1,0 +1,109 @@
+
+openapi: 3.0.0
+
+info:
+  title: Weather API
+  version: 1.0.0
+  description: This API provides access to weather data for a given date and station ID
+
+servers:
+  - url: http://localhost:5000/api
+
+paths:
+  /weather:
+    get:
+      summary: Retrieve weather data
+      description: Returns weather data filtered by date and station ID
+      parameters:
+        - in: query
+          name: date
+          schema:
+            type: string
+            format: date
+          description: Date of the weather data to retrieve (YYYY-MM-DD)
+        - in: query
+          name: station_id
+          schema:
+            type: string
+          description: ID of the weather station
+        - in: query
+          name: page
+          schema:
+            type: integer
+            default: 1
+          description: Page number for pagination
+        - in: query
+          name: page_size
+          schema:
+            type: integer
+            default: 20
+          description: Number of records per page
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                      description: Date of the weather data
+                    station_id:
+                      type: string
+                      description: ID of the weather station
+                    maximum_temperature:
+                      type: number
+                      format: float
+                      description: Maximum temperature (in degrees Celsius)
+                    minimum_temperature:
+                      type: number
+                      format: float
+                      description: Minimum temperature (in degrees Celsius)
+                    precipitation:
+                      type: number
+                      format: float
+                      description: Precipitation (in centimeters)
+        400:
+          description: Invalid request
+  /weather/stats:
+    get:
+      summary: Retrieve weather statistics
+      description: Returns weather statistics filtered by date and station ID
+      parameters:
+        - in: query
+          name: date
+          schema:
+            type: string
+            format: date
+          description: Date of the weather data to retrieve (YYYY-MM-DD)
+        - in: query
+          name: station_id
+          schema:
+            type: string
+          description: ID of the weather station
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  average_maximum_temperature:
+                    type: number
+                    format: float
+                    description: Average maximum temperature (in degrees Celsius)
+                  average_minimum_temperature:
+                    type: number
+                    format: float
+                    description: Average minimum temperature (in degrees Celsius)
+                  total_precipitation:
+                    type: number
+                    format: float
+                    description: Total precipitation (in centimeters)
+        400:
+          description: Invalid request
